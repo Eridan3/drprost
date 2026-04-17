@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Projects/**)",
+      "Bash(mkdir -p img functions/api hakkimizda iletisim siparis-takibi gizlilik-politikasi kullanim-sartlari yasal-uyari cerez-politikasi teslimat-politikasi iade-politikasi tesekkurler eczane-gratis eczane-watsons eczane-e-eczaci eczane-dermoeczanem prostat-sagligi-50-yas-uzeri uzman)",
+      "Bash(cp product.png img/dr-prost.png)",
+      "Bash(cp doctor.png img/dr-turhan-caskurlu.jpg)",
+      "Bash(python -c ':*)"
+    ]
+  }
+}
