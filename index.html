@@ -592,7 +592,7 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
 .modal-overlay.active{visibility:visible;opacity:1}
 .modal-box{background:var(--white);border-radius:var(--radius-xl);max-width:440px;width:100%;max-height:92vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform .3s;box-shadow:var(--shadow-lg)}
 .modal-overlay.active .modal-box{transform:translateY(0)}
-.modal-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:var(--gray-100);border:none;cursor:pointer;font-size:1.3rem;color:var(--text-mid);display:flex;align-items:center;justify-content:center;z-index:2}
+.modal-close{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:var(--white);border:1px solid var(--gray-200);cursor:pointer;font-size:1.05rem;line-height:1;color:var(--text-mid);display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 2px 6px rgba(14,31,26,.08)}
 .modal-close:hover{background:var(--gray-200)}
 .modal-topbar{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:16px 24px;border-radius:var(--radius-xl) var(--radius-xl) 0 0;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:8px}
 .modal-body{padding:22px}
@@ -615,7 +615,7 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
 .modal-box--v2{padding:0;max-width:420px;overflow:hidden;background:var(--white)}
 
 /* Urgency ribbon — single-line, never truncates */
-.md-urgency{background:linear-gradient(180deg,#fef7ed 0%,var(--danger-pale) 100%);padding:12px 18px 11px;border-bottom:1px solid rgba(200,155,60,.2)}
+.md-urgency{background:linear-gradient(180deg,#fef7ed 0%,var(--danger-pale) 100%);padding:12px 46px 11px 18px;border-bottom:1px solid rgba(200,155,60,.2)}
 .md-urgency-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;min-width:0}
 .md-urgency-label{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:800;color:var(--danger-dark);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .md-urgency-pill{display:inline-flex;align-items:center;gap:5px;background:var(--white);border:1px solid rgba(200,54,26,.2);padding:4px 10px;border-radius:999px;font-size:.72rem;color:var(--text-mid);font-weight:700;white-space:nowrap;flex-shrink:0}
@@ -668,7 +668,7 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
 .md-price-new{font-size:1.5rem}
 .md-price-old{font-size:.86rem}
 .modal-box--v2 .order-form{padding:10px 14px 16px}
-.md-urgency{padding:8px 12px 7px}
+.md-urgency{padding:8px 42px 7px 12px}
 .md-urgency-label{font-size:.62rem}
 }
 </style>
