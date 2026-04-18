@@ -30,6 +30,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/img/dr-prost.png" fetchpriority="high">
+<script>
+(function(){try{var t=localStorage.getItem('theme');if(!t)t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})();
+</script>
 <style>
 /* Design: Centered-GradientFlow-Elevated-Grid | font:playfair+inter | palette:medical-green-teal | extras:urgency,chart,expert,highlights */
 :root{
@@ -119,12 +122,15 @@ section{padding:56px 0;position:relative}
 
 @media(max-width:1024px){
 .hamburger{display:flex}
-.header-nav{position:fixed;top:calc(var(--header-h) + 8px);left:50%;transform:translate(-50%,-10px);width:92%;max-width:360px;height:auto;max-height:calc(100dvh - var(--header-h) - 24px);background:var(--white);flex-direction:column;padding:18px;gap:4px;align-items:stretch;justify-content:flex-start;overflow-y:auto;visibility:hidden;opacity:0;border-radius:18px;box-shadow:var(--shadow-lg);border:1px solid var(--gray-100);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease),visibility var(--dur) var(--ease);z-index:var(--z-mobile-nav)}
-.header-nav.active{visibility:visible;opacity:1;transform:translate(-50%,0)}
-.header-nav a{font-size:1rem;width:100%;padding:12px 14px;border-radius:10px;text-align:center}
-.header-nav a:hover,.header-nav a:focus-visible{background:var(--primary-pale);color:var(--primary-dark)}
-.header-cta{width:100%;justify-content:center;margin-top:8px}
-body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35,.35);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);z-index:calc(var(--z-mobile-nav) - 1);animation:navFade var(--dur) var(--ease)}
+.header-nav{position:fixed;top:calc(var(--header-h) + 10px);left:50%;transform:translate(-50%,-12px) scale(.96);transform-origin:top center;width:92%;max-width:340px;height:auto;max-height:calc(100dvh - var(--header-h) - 28px);background:var(--white);flex-direction:column;padding:10px;gap:0;align-items:stretch;justify-content:flex-start;overflow-y:auto;visibility:hidden;opacity:0;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.22),0 0 0 1px var(--gray-100);border:0;transition:opacity .22s var(--ease),transform .28s cubic-bezier(.2,.9,.3,1.2),visibility .22s var(--ease);z-index:var(--z-mobile-nav);-webkit-overflow-scrolling:touch}
+.header-nav.active{visibility:visible;opacity:1;transform:translate(-50%,0) scale(1)}
+.header-nav a{font-size:.98rem;font-weight:600;width:100%;padding:13px 16px;border-radius:10px;text-align:left;color:var(--text);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--gray-100);transition:background-color .15s var(--ease),color .15s var(--ease)}
+.header-nav a:not(.header-cta):last-of-type{border-bottom:0}
+.header-nav a:hover,.header-nav a:focus-visible,.header-nav a:active{background:var(--primary-pale);color:var(--primary-dark)}
+.header-cta{width:100%!important;justify-content:center!important;margin-top:10px!important;padding:14px 20px!important;font-size:.95rem!important;border-bottom:0!important;border-radius:12px!important}
+body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:calc(var(--z-mobile-nav) - 1);animation:navFade .22s var(--ease)}
+body.nav-open .header{z-index:calc(var(--z-mobile-nav) + 2)}
+body.nav-open::before{cursor:pointer}
 @keyframes navFade{from{opacity:0}to{opacity:1}}
 }
 @media(max-width:768px){.header{-webkit-backdrop-filter:none;backdrop-filter:none}}
@@ -671,6 +677,182 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
 .md-urgency{padding:8px 42px 7px 12px}
 .md-urgency-label{font-size:.62rem}
 }
+
+/* === Theme toggle button === */
+.header-actions{display:flex;align-items:center;gap:4px}
+@media(min-width:1025px){.header-nav{margin-left:auto}}
+.theme-toggle{position:relative;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:none;background:transparent;color:var(--text);cursor:pointer;overflow:hidden;padding:0;flex-shrink:0;z-index:var(--z-hamburger);transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.theme-toggle:hover{background:var(--gray-100)}
+.theme-toggle:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.theme-toggle svg{position:absolute;width:20px;height:20px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s cubic-bezier(.34,1.56,.64,1)}
+.theme-toggle .icon-moon{opacity:0;transform:translateY(20px) scale(.5)}
+html.dark .theme-toggle .icon-sun{opacity:0;transform:translateY(20px) scale(.5)}
+html.dark .theme-toggle .icon-moon{opacity:1;transform:translateY(0) scale(1)}
+
+/* === Dark mode — premium obsidian (warm near-black + emerald + champagne gold) === */
+html.dark{
+--white:#17181c;--gray-50:#131418;--gray-100:#23252b;--gray-200:#31343c;--gray-300:#4a4e58;
+--text:#f6f6f8;--text-mid:#c2c4cc;--text-light:#8b8e98;
+--primary:#4aa589;--primary-light:#6ec0a4;--primary-dark:#3d8a75;
+--primary-pale:#14221e;--accent-pale:#241d11;--danger-pale:#2a1613;
+--accent:#d4a955;--accent-light:#e8c172;
+--shadow-sm:0 1px 2px rgba(0,0,0,.5),0 1px 1px rgba(0,0,0,.35);
+--shadow-md:0 10px 30px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.4);
+--shadow-lg:0 30px 70px rgba(0,0,0,.72),0 6px 18px rgba(0,0,0,.5);
+--hl-gradient:linear-gradient(180deg,transparent 62%,rgba(232,193,114,.55) 62%,rgba(232,193,114,.55) 100%);
+--hl-accent-gradient:linear-gradient(180deg,transparent 62%,rgba(110,192,164,.45) 62%,rgba(110,192,164,.45) 100%);
+--dark-bg:#0b0c10;--dark-bg-2:#101217;--dark-bg-3:#0d0f13;
+--surface-border:rgba(255,255,255,.07);
+--surface-border-strong:rgba(255,255,255,.1);
+--gold-line:linear-gradient(90deg,transparent,rgba(232,193,114,.4),transparent);
+}
+html.dark body{background:#0b0c10;color:var(--text);background-image:radial-gradient(1200px 600px at 15% -10%,rgba(74,165,137,.06),transparent 60%),radial-gradient(900px 500px at 85% 10%,rgba(212,169,85,.04),transparent 65%)}
+html.dark p{color:var(--text-mid)}
+html.dark h1,html.dark h2,html.dark h3,html.dark h4{color:var(--text);letter-spacing:-.01em}
+html.dark h1{color:#fff}
+html.dark .hl,html.dark .hl-accent{color:var(--text)}
+html.dark .hl{background:var(--hl-gradient)}
+html.dark .hl-accent{background:var(--hl-accent-gradient)}
+html.dark .header{background:rgba(13,15,19,.72);border-bottom-color:var(--surface-border);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}
+html.dark .header.scrolled{background:rgba(13,15,19,.92);box-shadow:0 10px 30px rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.04) inset}
+html.dark .hamburger span{background:var(--primary-light)}
+html.dark .header-nav{background:#16181d;border-color:var(--surface-border-strong);box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04),0 1px 0 rgba(255,255,255,.06) inset}
+html.dark body.nav-open::before{background:rgba(0,0,0,.65)}
+html.dark .header-nav a{border-bottom-color:rgba(255,255,255,.05)}
+html.dark .header-nav a:hover,html.dark .header-nav a:focus-visible{background:rgba(74,165,137,.12);color:#d8f0e4}
+
+/* hero — obsidian with emerald + gold glow */
+html.dark .hero{background:radial-gradient(1100px 520px at 20% 0%,rgba(74,165,137,.14),transparent 62%),radial-gradient(900px 480px at 90% 30%,rgba(212,169,85,.08),transparent 65%),linear-gradient(180deg,#0a0b0f 0%,#0f1116 60%,#0a0b0f 100%)}
+html.dark .hero-content h1 em{background:linear-gradient(120deg,#7ad0b2 0%,#e8c172 55%,#d4a955 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+html.dark .hero-badge-top{background:linear-gradient(180deg,rgba(74,165,137,.16),rgba(74,165,137,.08));border-color:rgba(110,192,164,.32);color:#dff3ea;box-shadow:0 0 0 1px rgba(255,255,255,.04) inset}
+html.dark .trust-pill,html.dark .info-pill{background:linear-gradient(180deg,#1a1c22,#141519);border-color:var(--surface-border-strong);color:var(--text-mid);box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+html.dark .hb-rating{background:linear-gradient(180deg,#1b1d23,#141519);color:var(--text);border:1px solid var(--surface-border-strong)}
+html.dark .price-block{background:linear-gradient(180deg,#191b21,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-md),0 1px 0 rgba(255,255,255,.05) inset}
+html.dark .payment-pills span{background:rgba(74,165,137,.12);color:#d8f0e4;border:1px solid rgba(110,192,164,.22)}
+
+html.dark .trust-bar{background:#0d0f13;border-top-color:var(--surface-border);border-bottom-color:var(--surface-border)}
+html.dark .trust-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+
+/* nedir */
+html.dark .nedir-section{background:radial-gradient(900px 400px at 80% 0%,rgba(74,165,137,.08),transparent 60%),linear-gradient(180deg,#0a0b0f,#0e0f14 50%,#0a0b0f)}
+html.dark .nedir-snippet{background:linear-gradient(180deg,#181a20,#131419);color:var(--text);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-md)}
+html.dark .mechanism-flow-step{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);color:#d8f0e4}
+html.dark .mech-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+html.dark .mech-stat{background:rgba(74,165,137,.12);color:#d8f0e4;border:1px solid rgba(110,192,164,.22)}
+
+html.dark .benefits-section{background:#0d0f13}
+html.dark .ben-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+html.dark .ben-card:hover{border-color:rgba(110,192,164,.28);box-shadow:0 14px 34px rgba(0,0,0,.55),0 0 0 1px rgba(110,192,164,.18)}
+
+html.dark .vs-section{background:#0d0f13}
+html.dark .vs-table{background:#16181d;box-shadow:var(--shadow-md);border:1px solid var(--surface-border-strong)}
+html.dark .vs-table th:first-child,html.dark .vs-table td:first-child{background:#131419;color:var(--text)}
+html.dark .vs-table th:nth-child(2),html.dark .vs-table td:nth-child(2){background:linear-gradient(180deg,rgba(74,165,137,.14),rgba(74,165,137,.06));color:#e6f5ec}
+
+html.dark .quiz-section{background:radial-gradient(800px 400px at 50% 0%,rgba(212,169,85,.06),transparent 60%),#0a0b0f}
+html.dark .quiz-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-lg)}
+html.dark .quiz-dot{background:var(--gray-200)}
+html.dark .quiz-option{background:#131419;border:1px solid var(--surface-border-strong);color:var(--text);transition:all .2s var(--ease)}
+html.dark .quiz-option:hover{background:rgba(74,165,137,.1);border-color:rgba(110,192,164,.35);transform:translateY(-1px)}
+html.dark .quiz-meter{background:var(--gray-100)}
+
+html.dark .ing-section{background:#0d0f13}
+html.dark .ing-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+html.dark .ing-dose{background:rgba(74,165,137,.12);color:#d8f0e4;border:1px solid rgba(110,192,164,.22)}
+
+html.dark .expert-section{background:radial-gradient(700px 360px at 10% 20%,rgba(212,169,85,.06),transparent 60%),#0a0b0f}
+html.dark .expert-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-lg);position:relative}
+html.dark .expert-card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(232,193,114,.22),transparent 40%,rgba(110,192,164,.18));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+html.dark .expert-reg{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.32);color:#6ee796}
+html.dark .expert-reg--gold{background:rgba(212,169,85,.12);border-color:rgba(232,193,114,.38);color:var(--accent-light)}
+html.dark .como-step{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+
+html.dark .price-comp{background:#0d0f13}
+html.dark .price-comp-table{background:#16181d;border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-md)}
+html.dark .price-comp-table tbody td{color:var(--text);border-color:rgba(255,255,255,.05)}
+html.dark .price-comp-table thead{background:linear-gradient(180deg,rgba(74,165,137,.18),rgba(74,165,137,.1))}
+html.dark .price-comp-table thead th{color:#e6f5ec}
+html.dark .price-comp-table tfoot td{background:rgba(74,165,137,.1);color:#d8f0e4}
+html.dark .price-comp-table th:nth-child(2),html.dark .price-comp-table td:nth-child(2){background:rgba(74,165,137,.08);color:#d8f0e4}
+
+html.dark .vs-cards .new-way{background:linear-gradient(180deg,rgba(74,165,137,.14),rgba(74,165,137,.06));border-color:rgba(110,192,164,.3)}
+html.dark .vs-cards .new-way h4{color:#fff}
+html.dark .vs-cards .new-way .vs-price{color:#fff}
+html.dark .vs-cards .old-way{background:linear-gradient(180deg,#181a20,#131419);border-color:var(--surface-border-strong)}
+html.dark .vs-cards .old-way h4,html.dark .vs-cards .old-way .vs-price{color:var(--text-mid)}
+
+html.dark .rev-section{background:#0d0f13}
+html.dark .rev-badge{background:rgba(74,165,137,.12);color:#d8f0e4;border:1px solid rgba(110,192,164,.22)}
+html.dark .rev-stat{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+html.dark .rev-histo{background:#131419;border:1px solid var(--surface-border)}
+html.dark .rev-histo-bar{background:var(--gray-200)}
+html.dark .rev-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+html.dark .rev-tag{background:rgba(212,169,85,.1);color:var(--accent-light);border:1px solid rgba(232,193,114,.25)}
+
+html.dark .doctor-rec-section{background:#0d0f13}
+html.dark .doctor-rec-inner{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-lg)}
+html.dark .doctor-rec-badges .b-field{background:rgba(74,165,137,.12);color:#d8f0e4;border:1px solid rgba(110,192,164,.22)}
+html.dark .doctor-rec-badges .b-gold{background:rgba(212,169,85,.12);color:var(--accent-light);border:1px solid rgba(232,193,114,.28)}
+html.dark .doctor-rec-reg{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.32);color:#6ee796}
+
+/* guarantee — hero moment, gold-trimmed */
+html.dark .guarantee-section{background:radial-gradient(700px 340px at 50% 0%,rgba(212,169,85,.1),transparent 65%),#0a0b0f}
+html.dark .guarantee-card{background:linear-gradient(180deg,#1a1c22,#131419);border:1px solid var(--surface-border-strong);box-shadow:0 40px 90px rgba(0,0,0,.7),0 0 0 1px rgba(232,193,114,.16);position:relative}
+html.dark .guarantee-card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(232,193,114,.5),rgba(232,193,114,.05) 45%,rgba(110,192,164,.28));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+html.dark .faq-section{background:#0d0f13}
+html.dark .faq-item{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+html.dark .faq-icon{background:rgba(74,165,137,.12);color:#d8f0e4;border:1px solid rgba(110,192,164,.22)}
+
+/* final cta — obsidian with gentle gold halo */
+html.dark .final-cta{background:radial-gradient(900px 420px at 50% 100%,rgba(212,169,85,.08),transparent 65%),radial-gradient(800px 380px at 15% 0%,rgba(74,165,137,.08),transparent 60%),linear-gradient(180deg,#0a0b0f 0%,#0f1116 55%,#0a0b0f 100%)}
+html.dark .final-form-card{background:linear-gradient(180deg,#1a1c22,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-lg)}
+html.dark .offer-box{background:linear-gradient(180deg,#14161a,#101116);border:1px solid var(--surface-border-strong);box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+html.dark .order-field{background:#0f1115;color:var(--text);border:1px solid var(--surface-border-strong);transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+html.dark .order-field:focus{border-color:rgba(110,192,164,.5);box-shadow:0 0 0 3px rgba(110,192,164,.15)}
+html.dark .order-field::placeholder{color:var(--text-light)}
+html.dark .phone-input-wrap{background:#0f1115;border:1px solid var(--surface-border-strong)}
+html.dark .phone-prefix{background:#17191e;color:var(--text-mid);border-right-color:var(--surface-border-strong)}
+
+html.dark .pharm-section{background:#0d0f13}
+html.dark .pharm-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
+html.dark .pharm-why{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong)}
+
+/* modal — premium surface */
+html.dark .modal-overlay{background:rgba(5,6,9,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+html.dark .modal-box{background:linear-gradient(180deg,#1a1c22,#131419);border:1px solid var(--surface-border-strong);box-shadow:0 40px 90px rgba(0,0,0,.7)}
+html.dark .modal-box--v2{background:linear-gradient(180deg,#1a1c22,#131419);border:1px solid var(--surface-border-strong);box-shadow:0 40px 90px rgba(0,0,0,.7)}
+html.dark .modal-close{background:rgba(255,255,255,.06);border:1px solid var(--surface-border-strong);color:var(--text);backdrop-filter:blur(6px)}
+html.dark .modal-close:hover{background:rgba(255,255,255,.1)}
+html.dark .md-urgency{background:linear-gradient(180deg,#2a140f 0%,#1e100d 100%);border-bottom-color:rgba(232,193,114,.18)}
+html.dark .md-urgency-pill{background:rgba(0,0,0,.35);border:1px solid rgba(232,193,114,.22);color:var(--text)}
+html.dark .md-urgency-bar{background:rgba(200,54,26,.22)}
+html.dark .md-hero{background:radial-gradient(600px 280px at 50% 0%,rgba(74,165,137,.18),transparent 60%),linear-gradient(180deg,#141a18 0%,#16181d 100%)}
+html.dark .md-rating{background:rgba(255,255,255,.04);color:var(--text-mid);border:1px solid var(--surface-border)}
+html.dark .md-rating strong{color:var(--text)}
+html.dark .md-product-name{color:#fff}
+html.dark .md-price-new{color:#fff}
+html.dark .md-price-old{color:var(--text-light)}
+html.dark .md-value-bar{background:rgba(74,165,137,.12);border:1px solid rgba(110,192,164,.25)}
+html.dark .md-value-bar span{color:#e6f5ec}
+html.dark .modal-box--v2 .order-form{background:transparent}
+html.dark .md-trust-v2 span{background:rgba(255,255,255,.04);color:var(--text-mid);border:1px solid var(--surface-border)}
+
+html.dark .sticky-thumb{background:#fff}
+html.dark .hero-float-badge{box-shadow:0 14px 34px rgba(0,0,0,.65),0 0 0 1px rgba(232,193,114,.18)}
+html.dark .hb-oficial,html.dark .hb-delivery{box-shadow:0 14px 34px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.05)}
+
+/* refined details */
+html.dark .offer-name{color:#fff}
+html.dark .offer-price{color:#fff}
+html.dark .offer-price-old{color:var(--text-light)}
+html.dark ::selection{background:rgba(232,193,114,.35);color:#fff}
+html.dark ::-webkit-scrollbar{width:10px;height:10px}
+html.dark ::-webkit-scrollbar-track{background:#0b0c10}
+html.dark ::-webkit-scrollbar-thumb{background:#23252b;border-radius:8px;border:2px solid #0b0c10}
+html.dark ::-webkit-scrollbar-thumb:hover{background:#31343c}
+html.dark .btn-primary,html.dark .cta-primary,html.dark button[type="submit"]{box-shadow:0 10px 26px rgba(74,165,137,.28),0 1px 0 rgba(255,255,255,.12) inset}
+html.dark .btn-primary:hover,html.dark .cta-primary:hover,html.dark button[type="submit"]:hover{box-shadow:0 14px 32px rgba(74,165,137,.4),0 1px 0 rgba(255,255,255,.14) inset}
 </style>
 
 <script type="application/ld+json">
@@ -725,7 +907,13 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
       <a href="#eczaneler">Eczaneler</a>
       <a href="#" class="header-cta" onclick="openOrderModal();return false"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Sipariş Ver</a>
     </nav>
-    <button class="hamburger" id="hamBtn" aria-label="Menüyü aç" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="header-actions">
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Koyu temaya geç">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" id="hamBtn" aria-label="Menüyü aç" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -1124,41 +1312,6 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
   </div>
 </section>
 
-<!-- 6.5 Expert block (Mode B — Dr. Turhan Çaşkurlu) -->
-<section class="expert-section" id="uzman-gorus">
-  <div class="container">
-    <div class="section-tag-wrap"><span class="section-tag">Uzman Görüşü</span></div>
-    <h2>Üroloji Uzmanının Dr.Prost Değerlendirmesi</h2>
-    <div class="expert-card">
-      <div class="expert-photo-wrap">
-        <img src="img/dr-turhan-caskurlu.jpg" alt="Prof. Dr. Turhan Çaşkurlu — Memorial Ataşehir Hastanesi Üroloji Uzmanı">
-        <span class="expert-photo-badge">ÜROLOJİ UZMANI</span>
-      </div>
-      <div class="expert-content">
-        <span class="expert-quote-mark">"</span>
-        <p class="expert-quote">Saw Palmetto, Beta-Sitosterol, Kabak Çekirdeği ve Pygeum africanum, 50 yaş üstü erkeklerin günlük üriner konforun bakımına yönelik en çok çalışılmış bitkisel aktiflerdir. Dr.Prost formülü bu dört aktifi standardize konsantrasyonlarda tek kapsülde birleştirir ve Çinko-Selenyum desteğiyle erkek sağlığının antioksidan-hormonal bakımına bütüncül katkı sağlar. Bitkisel takviyenin düzenli ve en az 4-8 hafta boyunca kullanılması önemlidir.</p>
-        <div class="expert-cred">
-          <h4>Prof. Dr. Turhan Çaşkurlu</h4>
-          <p class="spec">Üroloji Uzmanı · Endoüroloji &amp; Robotik Cerrahi · 33+ yıl deneyim</p>
-          <p class="inst">Memorial Ataşehir Hastanesi Üroloji Bölümü · Kayışdağı Cad. No:32, 34758 Ataşehir / İstanbul</p>
-          <div class="expert-bottom">
-            <span class="expert-reg">TÜD Üyesi</span>
-            <span class="expert-verified"><span class="cc">TR</span> Türk Üroloji Derneği</span>
-          </div>
-          <div class="expert-bottom">
-            <span class="expert-reg">EAU Member</span>
-            <span class="expert-verified"><span class="cc">EU</span> European Association of Urology</span>
-          </div>
-          <div class="expert-bottom">
-            <span class="expert-reg expert-reg--gold">149 Bilimsel Yayın</span>
-            <span class="expert-verified">İstanbul Üniversitesi Tıp Fakültesi mezunu · Endoüroloji Ödülü</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 11. Como tomar / Nasıl Kullanılır -->
 <section id="kullanim">
   <div class="container">
@@ -1386,34 +1539,6 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
   </div>
 </section>
 
-<!-- 14.5 Doctor recommendation -->
-<section class="doctor-rec-section">
-  <div class="container">
-    <div class="section-tag-wrap"><span class="section-tag">Uzman Tavsiyesi</span></div>
-    <h2>Üroloji Uzmanından Prostat Sağlığı Değerlendirmesi</h2>
-    <div class="doctor-rec">
-      <div class="doctor-rec-inner">
-        <div class="doctor-rec-badges">
-          <span class="b-field">Üroloji</span>
-          <span class="b-gold">★ Uzman Tavsiyesi</span>
-        </div>
-        <p class="doctor-rec-quote">50 yaş üstü erkek sağlığının günlük bakımında bitkisel takviyeler, hekim önerisiyle birlikte destekleyici bir araçtır. Saw Palmetto, Beta-Sitosterol ve Pygeum africanum gibi aktifler klinik literatürde en çok incelenen bitkilerdir. Dr Prost bu aktifleri standardize dozajda sunar ve Çinko-Selenyum desteğiyle antioksidan bakımına katkı sağlar — düzenli, kesintisiz kullanım en önemli noktadır.</p>
-        <div class="doctor-rec-profile">
-          <img class="doctor-rec-photo" src="img/dr-turhan-caskurlu.jpg" alt="Prof. Dr. Turhan Çaşkurlu portresi">
-          <div class="doctor-rec-info">
-            <h4>Prof. Dr. Turhan Çaşkurlu</h4>
-            <p class="dt">Üroloji Uzmanı · 33+ yıl deneyim · 149 bilimsel yayın</p>
-            <div class="doctor-rec-bottom">
-              <span class="doctor-rec-reg">TÜD Üyesi</span>
-              <span class="doctor-rec-org"><span class="cc">TR</span> Memorial Ataşehir Hastanesi</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 15. Guarantee -->
 <section class="guarantee-section">
   <div class="container">
@@ -1466,7 +1591,7 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
           <input type="hidden" name="sub1" value="final-cta">
           <div class="offer-box">
             <img src="img/dr-prost.png" alt="Dr.Prost kutu">
-            <div class="offer-name">Dr.Prost — 30 Kapsül</div>
+            <div class="offer-name">Dr.Prost</div>
             <div class="offer-price-row">
               <span class="offer-old">1.798 ₺</span>
               <span class="offer-new">899</span>
@@ -1578,8 +1703,8 @@ body.nav-open::before{content:"";position:fixed;inset:0;background:rgba(15,25,35
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span id="cpYear">2026</span> Dr.Prost · Ronanna Sağlık Ürünleri Ltd. Şti. Tüm hakları saklıdır. Bu ürün bir gıda takviyesidir, ilaç değildir. Hastalıkların önlenmesi, tedavisi veya iyileştirilmesi amacıyla kullanılmaz.</p>
-      <p class="footer-producer"><strong>Üretici ve dağıtıcı:</strong> Ronanna Sağlık Ürünleri Ltd. Şti.<span class="sep">|</span>Barbaros Mah. Begonya Sok. No:1, 34750 Ataşehir / İstanbul<br>Vergi Dairesi: Kozyatağı<span class="sep">|</span>Vergi No: 9210548732<span class="sep">|</span>MERSİS No: 0921054873200015<span class="sep">|</span>Ticaret Sicil No: 387573/5<br>Takviye Edici Gıda Onay No: TR-34-K-198742<span class="sep">|</span>ITS GTIN: 08690123456789<span class="sep">|</span>KEP: ronannasaglik@hs01.kep.tr</p>
+      <p>© <span id="cpYear">2026</span> Dr.Prost · Tüm hakları saklıdır. Bu ürün bir gıda takviyesidir, ilaç değildir. Hastalıkların önlenmesi, tedavisi veya iyileştirilmesi amacıyla kullanılmaz.</p>
+      <p class="footer-producer"><strong>Dr.Prost — bitkisel prostat gıda takviyesi:</strong> Saw Palmetto 320 mg, Kabak Çekirdeği 250 mg, Beta-Sitosterol 65 mg, Pygeum 100 mg, Çinko ve Selenyum içerikli 30 kapsüllük formül. 45 yaş ve üzeri erkeklerde günlük prostat ve üriner sistem konforunu desteklemek amacıyla geliştirilmiştir.<br>Türkiye genelinde ücretsiz kargo ve kapıda ödeme ile yalnızca drprost.tr resmi sitesi üzerinden temin edilir · 1–3 iş günü teslimat · 14 gün koşulsuz iade · kapalı hologramlı orijinal ambalaj.</p>
       <p class="footer-brand-row"><strong>Marka:</strong> Dr.Prost<span class="sep">|</span><strong>E-posta:</strong> iletisim@drprost.tr<span class="sep">|</span><strong>Müşteri hizmetleri:</strong> 7/24</p>
     </div>
   </div>
@@ -1759,7 +1884,24 @@ safe('sticky',function(){
 // 9. Dynamic footer year
 safe('year',function(){var y=document.getElementById('cpYear');if(y)y.textContent=new Date().getFullYear()});
 
-// 10. Auto-popup (single trigger per session — Google interstitial-safe)
+// 10. Theme toggle
+safe('theme',function(){
+  var btn=document.getElementById('themeToggle');if(!btn)return;
+  function syncLabel(){btn.setAttribute('aria-label',document.documentElement.classList.contains('dark')?'Açık temaya geç':'Koyu temaya geç')}
+  syncLabel();
+  btn.addEventListener('click',function(){
+    var isDark=document.documentElement.classList.toggle('dark');
+    try{localStorage.setItem('theme',isDark?'dark':'light')}catch(e){}
+    syncLabel();
+  });
+  if(window.matchMedia){
+    var mq=window.matchMedia('(prefers-color-scheme: dark)');
+    var listener=function(e){try{if(localStorage.getItem('theme'))return}catch(err){}document.documentElement.classList.toggle('dark',e.matches);syncLabel()};
+    if(mq.addEventListener)mq.addEventListener('change',listener);else if(mq.addListener)mq.addListener(listener);
+  }
+});
+
+// 11. Auto-popup (single trigger per session — Google interstitial-safe)
 safe('autopop',function(){
   if(sessionStorage.getItem('drp_pop'))return;
   setTimeout(function(){
