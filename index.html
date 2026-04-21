@@ -818,25 +818,33 @@ html.dark .pharm-section{background:#0d0f13}
 html.dark .pharm-card{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong);box-shadow:var(--shadow-sm)}
 html.dark .pharm-why{background:linear-gradient(180deg,#181a20,#131419);border:1px solid var(--surface-border-strong)}
 
-/* modal — premium surface */
+/* modal — always light theme (conversion-critical surface, never follows dark mode).
+   Uses hardcoded light-palette hex values because --white and friends flip to dark in html.dark. */
 html.dark .modal-overlay{background:rgba(5,6,9,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-html.dark .modal-box{background:linear-gradient(180deg,#1a1c22,#131419);border:1px solid var(--surface-border-strong);box-shadow:0 40px 90px rgba(0,0,0,.7)}
-html.dark .modal-box--v2{background:linear-gradient(180deg,#1a1c22,#131419);border:1px solid var(--surface-border-strong);box-shadow:0 40px 90px rgba(0,0,0,.7)}
-html.dark .modal-close{background:rgba(255,255,255,.06);border:1px solid var(--surface-border-strong);color:var(--text);backdrop-filter:blur(6px)}
-html.dark .modal-close:hover{background:rgba(255,255,255,.1)}
-html.dark .md-urgency{background:linear-gradient(180deg,#2a140f 0%,#1e100d 100%);border-bottom-color:rgba(232,193,114,.18)}
-html.dark .md-urgency-pill{background:rgba(0,0,0,.35);border:1px solid rgba(232,193,114,.22);color:var(--text)}
-html.dark .md-urgency-bar{background:rgba(200,54,26,.22)}
-html.dark .md-hero{background:radial-gradient(600px 280px at 50% 0%,rgba(74,165,137,.18),transparent 60%),linear-gradient(180deg,#141a18 0%,#16181d 100%)}
-html.dark .md-rating{background:rgba(255,255,255,.04);color:var(--text-mid);border:1px solid var(--surface-border)}
-html.dark .md-rating strong{color:var(--text)}
-html.dark .md-product-name{color:#fff}
-html.dark .md-price-new{color:#fff}
-html.dark .md-price-old{color:var(--text-light)}
-html.dark .md-value-bar{background:rgba(74,165,137,.12);border:1px solid rgba(110,192,164,.25)}
-html.dark .md-value-bar span{color:#e6f5ec}
-html.dark .modal-box--v2 .order-form{background:transparent}
-html.dark .md-trust-v2 span{background:rgba(255,255,255,.04);color:var(--text-mid);border:1px solid var(--surface-border)}
+html.dark .modal-box,
+html.dark .modal-box--v2{background:#ffffff!important;border:none;color:#1a2d28}
+html.dark .modal-box--v2 .order-form{background:#ffffff}
+html.dark .md-hero{background:linear-gradient(180deg,#fafffc 0%,#ffffff 100%)}
+html.dark .md-urgency{background:linear-gradient(180deg,#fef7ed 0%,#fdf3e8 100%);border-bottom-color:rgba(200,155,60,.2)}
+html.dark .md-urgency-pill{background:#ffffff;border:1px solid rgba(200,54,26,.2);color:#4a5d57}
+html.dark .md-urgency-bar{background:rgba(200,54,26,.15)}
+html.dark .md-product-name{color:#084636}
+html.dark .md-product-qty{color:#7b8a85}
+html.dark .md-price-new{color:#084636}
+html.dark .md-price-old{color:#7b8a85}
+html.dark .md-rating{background:#f7faf8;color:#4a5d57;border:none}
+html.dark .md-rating strong{color:#1a2d28}
+html.dark .md-value-bar{background:#e6f4ef;border:1px solid rgba(13,95,76,.1)}
+html.dark .md-value-bar span{color:#084636}
+html.dark .md-trust-v2 span{background:#f7faf8;color:#4a5d57;border:none}
+html.dark .modal-close{background:#ffffff;border:1px solid #dce4e0;color:#4a5d57}
+html.dark .modal-close:hover{background:#eef2f0}
+html.dark .md-note{color:#7b8a85}
+html.dark .order-field{background:#ffffff;color:#1a2d28;border-color:#dce4e0}
+html.dark .order-field::placeholder{color:#7b8a85}
+html.dark .phone-prefix{background:#f7faf8;color:#4a5d57;border-color:#dce4e0}
+html.dark .phone-input-wrap{background:#ffffff;border-color:#dce4e0}
+html.dark .field-group{background:#ffffff}
 
 html.dark .sticky-thumb{background:#fff}
 html.dark .hero-float-badge{box-shadow:0 14px 34px rgba(0,0,0,.65),0 0 0 1px rgba(232,193,114,.18)}
