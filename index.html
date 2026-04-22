@@ -152,8 +152,6 @@ body.nav-open::before{cursor:pointer}
 .trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .trust-pill{display:inline-flex;align-items:center;gap:5px;background:var(--white);border:1px solid var(--gray-200);padding:6px 12px;border-radius:var(--radius-full);font-size:.78rem;font-weight:600;color:var(--text-mid);box-shadow:var(--shadow-sm)}
 .trust-pill span:first-child{color:var(--accent-dark)}
-.urgency-bar{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--danger),var(--danger-light));color:#fff;padding:10px 16px;border-radius:var(--radius-md);margin-bottom:18px;font-size:.88rem;font-weight:600;animation:urgPulse 2s ease-in-out infinite}
-@keyframes urgPulse{0%,100%{box-shadow:0 4px 14px rgba(200,54,26,.3)}50%{box-shadow:0 6px 22px rgba(200,54,26,.55)}}
 .price-block{background:var(--white);border:2px solid var(--primary-pale);border-radius:var(--radius-lg);padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow-md);text-align:center}
 .price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px;row-gap:4px;justify-content:center}
 .price-old{font-size:1.1rem;color:var(--text-light);text-decoration:line-through;font-weight:500}
@@ -620,19 +618,8 @@ body.nav-open::before{cursor:pointer}
 /* Modal V2 — conversion-optimized */
 .modal-box--v2{padding:0;max-width:420px;overflow:hidden;background:var(--white)}
 
-/* Urgency ribbon — single-line, never truncates */
-.md-urgency{background:linear-gradient(180deg,#fef7ed 0%,var(--danger-pale) 100%);padding:12px 46px 11px 18px;border-bottom:1px solid rgba(200,155,60,.2)}
-.md-urgency-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;min-width:0}
-.md-urgency-label{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:800;color:var(--danger-dark);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
-.md-urgency-pill{display:inline-flex;align-items:center;gap:5px;background:var(--white);border:1px solid rgba(200,54,26,.2);padding:4px 10px;border-radius:999px;font-size:.72rem;color:var(--text-mid);font-weight:700;white-space:nowrap;flex-shrink:0}
-.md-urgency-pill strong{color:var(--danger);font-family:'Outfit','Inter',sans-serif;font-weight:800;font-feature-settings:"tnum" 1,"lnum" 1}
-.md-urgency-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--danger);animation:mdPulse 1.4s ease infinite}
-@keyframes mdPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.md-urgency-bar{height:5px;border-radius:999px;background:rgba(200,54,26,.15);overflow:hidden;position:relative}
-.md-urgency-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--discount-bg),var(--accent));border-radius:999px;transition:width .6s;box-shadow:0 0 8px rgba(200,54,26,.4)}
-
 /* Hero — product + price composition */
-.md-hero{padding:16px 20px 12px;text-align:center;background:linear-gradient(180deg,#fafffc 0%,var(--white) 100%);position:relative}
+.md-hero{padding:42px 20px 12px;text-align:center;background:linear-gradient(180deg,#fafffc 0%,var(--white) 100%);position:relative}
 .md-hero-img-wrap{position:relative;display:inline-block;margin-bottom:4px}
 .md-hero-img{width:128px;height:128px;object-fit:contain;display:block;filter:drop-shadow(0 10px 18px rgba(13,95,76,.22))}
 .md-discount-stamp{position:absolute;top:-4px;right:-10px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--discount-bg),#e5543a);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 5px 12px rgba(200,54,26,.4),inset 0 0 0 2px rgba(255,255,255,.25);font-family:'Outfit','Inter',sans-serif;font-feature-settings:"tnum" 1,"lnum" 1;transform:rotate(-8deg);animation:stampPulse 2s ease infinite}
@@ -665,7 +652,7 @@ body.nav-open::before{cursor:pointer}
 .md-trust-v2 span{background:var(--gray-50);padding:6px 8px;border-radius:8px;color:var(--text-mid);display:flex;align-items:center;justify-content:center;gap:4px;text-align:center;font-weight:600}
 .md-note{font-size:.68rem;color:var(--text-light);margin-top:8px;text-align:center;line-height:1.5}
 @media(max-width:480px){
-.md-hero{padding:14px 14px 10px}
+.md-hero{padding:38px 14px 10px}
 .md-hero-img{width:108px;height:108px}
 .md-discount-stamp{width:48px;height:48px;right:-4px}
 .md-discount-stamp b{font-size:.92rem}
@@ -674,8 +661,6 @@ body.nav-open::before{cursor:pointer}
 .md-price-new{font-size:1.5rem}
 .md-price-old{font-size:.86rem}
 .modal-box--v2 .order-form{padding:10px 14px 16px}
-.md-urgency{padding:8px 42px 7px 12px}
-.md-urgency-label{font-size:.62rem}
 }
 
 /* === Theme toggle button === */
@@ -825,9 +810,6 @@ html.dark .modal-box,
 html.dark .modal-box--v2{background:#ffffff!important;border:none;color:#1a2d28}
 html.dark .modal-box--v2 .order-form{background:#ffffff}
 html.dark .md-hero{background:linear-gradient(180deg,#fafffc 0%,#ffffff 100%)}
-html.dark .md-urgency{background:linear-gradient(180deg,#fef7ed 0%,#fdf3e8 100%);border-bottom-color:rgba(200,155,60,.2)}
-html.dark .md-urgency-pill{background:#ffffff;border:1px solid rgba(200,54,26,.2);color:#4a5d57}
-html.dark .md-urgency-bar{background:rgba(200,54,26,.15)}
 html.dark .md-product-name{color:#084636}
 html.dark .md-product-qty{color:#7b8a85}
 html.dark .md-price-new{color:#084636}
@@ -945,7 +927,6 @@ html.dark .btn-primary:hover,html.dark .cta-primary:hover,html.dark button[type=
           <span class="trust-pill"><span>🚚</span>1-3 günde teslim</span>
           <span class="trust-pill"><span>💳</span>Kapıda ödeme</span>
         </div>
-        <div class="urgency-bar">⚡ Kampanya stoğu sınırlı — bugün siparişe 50% indirim geçerli</div>
         <div class="price-block">
           <div class="price-row">
             <span class="price-old">1.798 ₺</span>
@@ -1427,7 +1408,7 @@ html.dark .btn-primary:hover,html.dark .cta-primary:hover,html.dark button[type=
   <div class="mid-cta-inner">
     <div class="mid-cta-product"><img src="img/dr-prost.png" alt="Dr.Prost kapsül kutusu — 30 kapsül bitkisel formül"></div>
     <h2>Kampanya Fiyatı: 1.798 ₺ Yerine 899 ₺</h2>
-    <p>Sınırlı sayıda resmi site kampanyası — tüm Türkiye'ye hızlı kargo, kapıda ödeme.</p>
+    <p>Resmi site kampanyası — tüm Türkiye'ye hızlı kargo, kapıda ödeme.</p>
     <div class="mid-cta-old">1.798 ₺</div>
     <div class="mid-cta-price">899 ₺</div>
     <button class="btn btn-cta-alt pulse-cta mid-cta-btn" onclick="openOrderModal()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Kampanyadan Satın Al<span class="btn-discount-pill">-50%</span></button>
@@ -1737,14 +1718,6 @@ html.dark .btn-primary:hover,html.dark .cta-primary:hover,html.dark button[type=
   <div class="modal-box modal-box--v2">
     <button class="modal-close" onclick="closeOrderModal()" aria-label="Kapat">×</button>
 
-    <div class="md-urgency">
-      <div class="md-urgency-head">
-        <span class="md-urgency-label">⚡ Kampanya — Sadece Bugün</span>
-        <span class="md-urgency-pill"><span class="dot"></span>Kalan <strong><span id="mdStock">7</span>/50</strong></span>
-      </div>
-      <div class="md-urgency-bar"><span style="width:14%"></span></div>
-    </div>
-
     <div class="md-hero">
       <div class="md-hero-img-wrap">
         <img class="md-hero-img" src="img/dr-prost.png" alt="Dr.Prost">
@@ -1803,17 +1776,10 @@ safe('nav',function(){
   if(h){window.addEventListener('scroll',function(){h.classList.toggle('scrolled',window.scrollY>20)})}
 });
 
-// 2. Modal (with V2 stock counter)
-safe('stockInit',function(){
-  var s=sessionStorage.getItem('mdStock');
-  if(!s){s=5+Math.floor(Math.random()*5);sessionStorage.setItem('mdStock',s)}
-  var el=document.getElementById('mdStock');if(el)el.textContent=s;
-  var bar=document.querySelector('.md-urgency-bar span');if(bar)bar.style.width=(parseInt(s,10)*2)+'%';
-});
+// 2. Modal
 window.openOrderModal=function(){
   var m=document.getElementById('orderModal');if(!m)return;
   m.classList.add('active');document.body.style.overflow='hidden';
-  try{var s=parseInt(sessionStorage.getItem('mdStock')||'7',10);if(s>3){s--;sessionStorage.setItem('mdStock',s);var el=document.getElementById('mdStock');if(el)el.textContent=s;var bar=document.querySelector('.md-urgency-bar span');if(bar)bar.style.width=(s*2)+'%'}}catch(e){}
 };
 window.closeOrderModal=function(){var m=document.getElementById('orderModal');if(m){m.classList.remove('active');document.body.style.overflow=''}};
 safe('modalDismiss',function(){var m=document.getElementById('orderModal');if(m){m.addEventListener('click',function(e){if(e.target===m)closeOrderModal()});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOrderModal()})}});
