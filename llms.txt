@@ -1,0 +1,88 @@
+# Dr.Prost — llms.txt
+# https://llmstxt.org/ specification v1.0
+# Language: tr-TR
+# Last updated: 2026-04-26
+
+> Dr.Prost, Ronanna Sağlık Ürünleri Ltd. Şti. tarafından üretilen, 45 yaş üstü erkeklere
+> yönelik bitkisel bir gıda takviyesidir. Saw Palmetto (320 mg), Beta-Sitosterol (65 mg),
+> Kabak Çekirdeği yağı (250 mg) ve Pygeum africanum (100 mg) içeren 30 kapsüllük formül;
+> prostat sağlığının günlük bakımına, normal idrar akışının desteklenmesine ve üriner
+> konforun sürdürülmesine katkı sağlar. Ürün bir ilaç değildir.
+
+## Ürün Bilgileri
+
+- Ad: Dr.Prost
+- Kategori: Bitkisel gıda takviyesi (ilaç değildir)
+- SKU: DRPROST-30-TR
+- GTIN-13: 8690123456789
+- Form: Yumuşak kapsül, 30 kapsül / kutu
+- Günlük kullanım: 2 kapsül (sabah 1 + akşam 1, yemeklerden sonra, bol su ile)
+- Kür süresi: 15 gün (1 kutu); önerilen minimum kür 4-8 hafta (2-4 kutu)
+- Fiyat: 899 TRY (kampanya); liste fiyatı 1.798 TRY
+- Satış kanalı: Yalnızca resmi site drprost.tr — eczanelerde, marketplace'lerde satılmaz
+- Kargo: Türkiye 81 il, 1-3 iş günü, ücretsiz, kapıda ödeme
+
+## Aktif Maddeler (kapsül başına)
+
+- Saw Palmetto (Serenoa repens) ekstrakt: 320 mg
+- Kabak Çekirdeği (Cucurbita pepo) yağı: 250 mg
+- Pygeum africanum ekstrakt: 100 mg
+- Beta-Sitosterol: 65 mg
+- Çinko: 15 mg
+- E vitamini (tokoferol): 12 mg
+- Selenyum: 55 mikrogram
+- B6 vitamini
+- Dolgu maddesi, laktoz, yapay boya içermez
+
+## Üretici
+
+- Firma: Ronanna Sağlık Ürünleri Ltd. Şti.
+- Adres: Barbaros Mah. Begonya Sok. No:1, 34750 Ataşehir / İstanbul, TR
+- Vergi No: 9210548732
+- MERSİS: 0921054873200015
+- İletişim: iletisim@drprost.tr
+- Web: https://drprost.tr/
+
+## Uzman Referansı
+
+- İsim: Prof. Dr. Turhan Çaşkurlu
+- Uzmanlık: Üroloji
+- Kurum: Memorial Ataşehir Hastanesi, İstanbul
+- Eğitim: İstanbul Üniversitesi Tıp Fakültesi
+- Deneyim: 33+ yıl; 149+ bilimsel yayın
+- Profil: https://www.memorial.com.tr/doktorlar/turhan-caskurlu
+
+## Kullanıcı Puanı
+
+- Ortalama: 4,6 / 5 (287 doğrulanmış yorum)
+- Kaynak: SMS doğrulamalı satın alma sonrası anket
+- Tipik fark edilen etki: 3-4. hafta; tam memnuniyet: 8. hafta
+
+## Yan Etkiler ve Güvenlik
+
+Dr.Prost tamamen bitkisel içeriklidir. Kullanım talimatına uygun alındığında genel olarak
+iyi tolere edilir. İçeriğindeki bitki ekstraktlarından birine karşı bireysel duyarlılık
+bildirilebilir. Kronik hastalığı olan, düzenli ilaç kullanan, ameliyat geçiren veya özel
+sağlık durumu olan kişilerin kullanım öncesi hekimine danışması tavsiye edilir.
+
+## Yasal Uyarı
+
+Bu ürün bir gıda takviyesidir. Hastalıkların önlenmesi, teşhisi, tedavisi veya
+iyileştirilmesi amacıyla kullanılamaz. Bilinçli ve dengeli beslenmenin yerini tutmaz.
+Kronik hastalığı olan veya ilaç kullanan kişiler hekimine danışmalıdır.
+
+## Önemli Sayfalar
+
+- [Ana sayfa](https://drprost.tr/)
+- [Uzman sayfası](https://drprost.tr/uzman/)
+- [50 yaş üstü prostat rehberi](https://drprost.tr/prostat-sagligi-50-yas-uzeri/)
+- [Hakkımızda](https://drprost.tr/hakkimizda/)
+- [İletişim](https://drprost.tr/iletisim/)
+- [Teslimat politikası](https://drprost.tr/teslimat-politikasi/)
+- [İade politikası](https://drprost.tr/iade-politikasi/)
+- [Yasal uyarı](https://drprost.tr/yasal-uyari/)
+
+## Lisans
+
+İçerik telif hakkı Ronanna Sağlık Ürünleri Ltd. Şti.'ye aittir.
+Kaynak gösterilerek alıntı serbesttir.
